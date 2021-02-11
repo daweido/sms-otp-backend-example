@@ -6,15 +6,21 @@ export class UserEntity implements User {
   @PrimaryGeneratedColumn()
   userId: number;
 
-  @Column({ nullable: true })
-  firstName: string;
+  @Column()
+  username: string;
 
-  @Column({ nullable: true })
-  lastName: string;
+  @Column()
+  password: string;
 
   @Column({ type: 'timestamp', default: () => 'NOW()' })
   createdAt: Date;
 
   @Column({ nullable: true })
   phoneNumber: string;
+
+  @Column({ nullable: true })
+  smsOTP: string;
+
+  @Column({ type: 'timestamp', nullable: true })
+  otpExpirationDate: Date;
 }
